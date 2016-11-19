@@ -1,6 +1,5 @@
-class Part < ApplicationRecord
-  rolify :role_cname => 'Authority'
-  has_and_belongs_to_many :users, :join_table => :users_parts
+class Authority < ApplicationRecord
+  has_and_belongs_to_many :parts, :join_table => :parts_authorities
 
   belongs_to :resource,
              :polymorphic => true,
