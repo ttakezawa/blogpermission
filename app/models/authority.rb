@@ -1,4 +1,5 @@
 class Authority < ApplicationRecord
+  resourcify :parts, role_cname: 'Part'
   has_and_belongs_to_many :parts, :join_table => :parts_authorities
 
   belongs_to :resource,
