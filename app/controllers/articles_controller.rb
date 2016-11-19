@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    authorize @article
   end
 
   # POST /articles
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    authorize @article
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
