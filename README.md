@@ -1,24 +1,23 @@
-# README
+# Blogpermission
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Permission Control Example with Pundit and Rolify
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+```sh
+bundle install
+rails db:migrate
+```
 
-* System dependencies
+## Usage
 
-* Configuration
+```ruby
+# User:1 を :admin に追加する。
+# :admin に、Articleクラスへのupdate権限を追加する。
 
-* Database creation
+user = User.find(1)
+user.add_role(:admin)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+part = Part.find_by(name: :admin)
+part.add_role(:update, Article)
+```
